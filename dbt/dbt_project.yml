@@ -18,7 +18,7 @@ clean-targets:         # directories to be removed by `dbt clean`
   - "dbt_packages"
 
 models:
-  dbt-leather-shop:
+  leather-shop:
     +database: "{{ env_var('DBT_TARGET_DB') }}"
     staging:
       +materialized: view
