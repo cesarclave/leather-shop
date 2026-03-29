@@ -1,0 +1,86 @@
+sources:
+  - name: leather_shop
+    description: ""
+    database: "{{ env_var('DBT_RAW_DB') }}"
+    schema: raw
+    tables:
+      - name: customers
+        description: ""
+        columns:
+          - name: cust_number
+            data_type: text
+            description: ""
+          - name: fullname
+            data_type: text
+            description: ""
+          - name: email_address
+            data_type: text
+            description: ""
+          - name: city
+            data_type: text
+            description: ""
+          - name: country
+            data_type: text
+            description: ""
+          - name: updated_at
+            data_type: timestamp_ltz
+            description: ""
+          - name: _loaded_at
+            data_type: timestamp_ltz
+            description: ""
+          - name: src
+            data_type: text
+            description: ""
+
+      - name: orders
+        description: ""
+        columns:
+          - name: order_ref
+            data_type: text
+            description: ""
+          - name: cust_number
+            data_type: text
+            description: ""
+          - name: sku
+            data_type: text
+            description: ""
+          - name: qty
+            data_type: number
+            description: ""
+          - name: ordered_at
+            data_type: timestamp_ltz
+            description: ""
+          - name: _loaded_at
+            data_type: timestamp_ltz
+            description: ""
+          - name: src
+            data_type: text
+            description: ""
+
+      - name: products
+        description: ""
+        columns:
+          - name: sku
+            data_type: text
+            description: ""
+          - name: item_desc
+            data_type: text
+            description: ""
+          - name: category
+            data_type: text
+            description: ""
+          - name: material_type
+            data_type: text
+            description: ""
+          - name: unit_price
+            data_type: number
+            description: ""
+          - name: updated_at
+            data_type: timestamp_ltz
+            description: ""
+          - name: _loaded_at
+            data_type: timestamp_ltz
+            description: ""
+          - name: src
+            data_type: text
+            description: ""
