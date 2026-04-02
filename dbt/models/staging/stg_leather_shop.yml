@@ -6,55 +6,66 @@ models:
     columns:
       - name: customer_id
         description: "The unique identifier for a customer."
-        tests:
+        data_tests:
           - unique:
-              severity: error
+              config:
+                severity: error
           - not_null:
-              severity: error
+              config:
+                severity: error
       - name: customer_name
         description: "The full name of the customer."
-        tests:
+        data_tests:
           - not_null:
-              severity: warn
+              config:
+                severity: warn
       - name: email
         description: "The email address of the customer."
-        tests:
+        data_tests:
           - not_null:
-              severity: warn
+              config:
+                severity: warn
 
   - name: stg_products
     description: "Staging model for products data."
     columns:
       - name: product_id
         description: "The unique identifier for a product."
-        tests:
+        data_tests:
           - unique:
-              severity: error
+              config:
+                severity: error
           - not_null:
-              severity: error
+              config:
+                severity: error
       - name: product_name
         description: "The name of the product."
-        tests:
+        data_tests:
           - not_null:
-              severity: warn
+              config:
+                severity: warn
 
   - name: stg_orders
     description: "Staging model for orders data."
     columns:
       - name: order_id
         description: "The unique identifier for an order."
-        tests:
+        data_tests:
           - unique:
-              severity: error
+              config:
+                severity: error
           - not_null:
-              severity: error
+              config:
+                severity: error
       - name: customer_id
         description: "Foreign key to the customers table."
-        tests:
+        data_tests:
           - not_null:
-              severity: error
+              config:
+                severity: error
       - name: product_id
         description: "Foreign key to the products table."
-        tests:
+        data_tests:
           - not_null:
-              severity: error
+              config:
+                severity: error
