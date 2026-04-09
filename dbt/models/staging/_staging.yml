@@ -1,0 +1,71 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "Staging model for customers data."
+    columns:
+      - name: customer_id
+        description: "The unique identifier for a customer."
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: customer_name
+        description: "The full name of the customer."
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+      - name: email
+        description: "The email address of the customer."
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+  - name: stg_products
+    description: "Staging model for products data."
+    columns:
+      - name: product_id
+        description: "The unique identifier for a product."
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: product_name
+        description: "The name of the product."
+        data_tests:
+          - not_null:
+              config:
+                severity: warn
+
+  - name: stg_orders
+    description: "Staging model for orders data."
+    columns:
+      - name: order_id
+        description: "The unique identifier for an order."
+        data_tests:
+          - unique:
+              config:
+                severity: error
+          - not_null:
+              config:
+                severity: error
+      - name: customer_id
+        description: "Foreign key to the customers table."
+        data_tests:
+          - not_null:
+              config:
+                severity: error
+      - name: product_id
+        description: "Foreign key to the products table."
+        data_tests:
+          - not_null:
+              config:
+                severity: error

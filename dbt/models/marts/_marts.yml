@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: dim_customers
+    description: "{{ doc('dim_customers_doc') }}"
+    columns:
+      - name: customer_id
+        description: "Unique identifier for a customer."
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: "Customer s full name."
+      - name: email
+        description: "Customer s email."
+      - name: city
+        description: "City where the customer lives."
+      - name: country
+        description: "Country where the customer lives."
+
+  - name: dim_products
+    description: "This dimension table contains information about each product."
+    columns:
+      - name: product_id
+        description: "Unique identifier for a product."
+        data_tests:
+          - unique
+          - not_null
+      - name: product_name
+        description: "Product s name."
+      - name: category
+        description: "Product s category."
+      - name: material
+        description: "Product s material."
+      - name: price
+        description: "Product s price."
+
+  - name: fct_orders
+    description: "{{ doc('fct_orders_doc') }}"
+    columns:
+      - name: order_id
+        description: "Unique identifier for an order."
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: "Foreign key to dim_customers."
+      - name: product_id
+        description: "Foreign key to dim_products."
+      - name: quantity
+        description: "Quantity of the product ordered."
+      - name: order_datetime
+        description: "Date and time of the order."
+      - name: total_price
+        description: "Total price of the order line."
