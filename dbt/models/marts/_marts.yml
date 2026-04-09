@@ -2,11 +2,11 @@ version: 2
 
 models:
   - name: dim_customers
-    description: "{{ doc(\"dim_customers_doc\") }}"
+    description: "{{ doc('dim_customers_doc') }}"
     columns:
       - name: customer_id
         description: "Unique identifier for a customer."
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: customer_name
@@ -23,7 +23,7 @@ models:
     columns:
       - name: product_id
         description: "Unique identifier for a product."
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: product_name
@@ -36,11 +36,11 @@ models:
         description: "Product s price."
 
   - name: fct_orders
-    description: "{{ doc(\"fct_orders_doc\") }}"
+    description: "{{ doc('fct_orders_doc') }}"
     columns:
       - name: order_id
         description: "Unique identifier for an order."
-        tests:
+        data_tests:
           - unique
           - not_null
       - name: customer_id
